@@ -61,6 +61,7 @@ app.get('/api/auth', function(req, res) {
 
 app.get('/login', function(req, res) {
 
+  debugger;
   var state = generateRandomString(16);
   res.cookie(stateKey, state);
 
@@ -123,13 +124,13 @@ app.get('/callback', function(req, res) {
         });
 
         // we can also pass the token to the browser to make requests from there
-        res.redirect('http://playlist-pal.com/recommendations/#' +
+        res.redirect('http://www.playlist-pal.com/recommendations/#' +
             querystring.stringify({
               access_token: access_token,
               refresh_token: refresh_token
             }));
       } else {
-        res.redirect('http://playlist-pal.com/recommendations/#' +
+        res.redirect('http://www.playlist-pal.com/recommendations/#' +
             querystring.stringify({
               error: 'invalid_token'
             }));
